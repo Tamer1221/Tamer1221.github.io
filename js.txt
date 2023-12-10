@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spinning Wheel</title>
+    <style>
+        #wheel-container {
+            position: relative;
+        }
+
+        #wheel {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #FF6347 0% 120deg,
+                #32CD32 120deg 240deg,
+                #4169E1 240deg 360deg
+            );
+            transition: transform 3s ease-out;
+        }
+
+        #spin-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="wheel-container">
+    <div id="wheel"></div>
+</div>
+
+<button id="spin-button" onclick="spinWheel()">Spin</button>
+
+<script>
+    function spinWheel() {
+        // Get a random degree for rotation
+        const randomDegree = Math.floor(Math.random() * 360) + 720;
+
+        // Apply the rotation to the wheel
+        document.getElementById('wheel').style.transform = `rotate(${randomDegree}deg)`;
+
+        // Uncomment the line below if you want to perform an action based on the result
+        // performActionBasedOnResult(randomDegree % 360);
+    }
+
+    // Uncomment the function below and customize it based on your needs
+    // function performActionBasedOnResult(degrees) {
+    //     if (degrees >= 0 && degrees < 120) {
+    //         // Action for the first section
+    //         alert("You landed on Section 1!");
+    //     } else if (degrees >= 120 && degrees < 240) {
+    //         // Action for the second section
+    //         alert("You landed on Section 2!");
+    //     } else {
+    //         // Action for the third section
+    //         alert("You landed on Section 3!");
+    //     }
+    // }
+</script>
+
+</body>
+</html>
